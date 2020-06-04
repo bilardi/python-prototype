@@ -8,7 +8,7 @@ See the documentation and how to do it on `readthedocs <https://simple-sample.re
 And see the development of this code step by step
 
 * with `see-git-steps <https://github.com/bilardi/see-git-steps>`_
-* on `readthedocs/stepbystep <https://simple-sample.readthedocs.io/en/latest/>`_
+* on `readthedocs / step by step <https://simple-sample.readthedocs.io/en/latest/stepbystep.html>`_
 
 Installation
 ###############
@@ -29,7 +29,7 @@ Usage
 #####
 
 Read the unit tests in `tests/testMyClass.py <https://github.com/bilardi/python-prototype/tests/testMyClass.py>`_ file to use it. This is a best practice.
-You can read also the documentation by command line, if you download by github
+You can read also the documentation by command line,
 
 .. code-block:: bash
 
