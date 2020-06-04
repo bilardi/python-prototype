@@ -1,9 +1,10 @@
 import setuptools
+import simple_sample
 
 setuptools.setup(
     name="simple-sample",
-    version="0.0.1",
-    author="Alessandra Bilardi",
+    version=simple_sample.__version__,
+    author=simple_sample.__author__,
     author_email="alessandra.bilardi@gmail.com",
     description="A simple sample of a Python package prototype",
 #     long_description=open('README.md').read(),
