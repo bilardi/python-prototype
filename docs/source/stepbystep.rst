@@ -242,4 +242,23 @@ If the test is OK, you can add the new file and you can commit your changes
 Step 8
 ******
 
+Now you can write the unit tests for a class can extend the interface class and the abstract class: note that it has been also added a unit test for the public method of the abstract class.
+See the unit tests of MyClass by `GitHub <https://github.com/bilardi/python-prototype/commit/d78aacd6f3ef99d119b8ceb45d2378b1344d5f27>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c d78aacd6f3ef99d119b8ceb45d2378b1344d5f27 -v
+
+When you have created **tests/testMyClass.py** and added the new file, you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add tests/testMyClass.py
+    $ git commit -m "step 6 - add the unit test for MyClass"
+
+Step 9
+******
+
 To be continued ..
