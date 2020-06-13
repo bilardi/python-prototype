@@ -134,4 +134,28 @@ So you can add CHANGELOG.md on your last commit, or you can create one commit fo
 Step 4
 ******
 
+Before write code, it is important to verbalize the methods by create Test Driven Development (TDD) for your code.
+Then, it is important to use unit test for finding the issues and before to update change log file and package version.
+
+In Python, a standard TDD is offered by unittest module: see the unit tests of MyClassInterface by `GitHub <https://github.com/bilardi/python-prototype/commit/b31157739997841621968440f970778059a41946>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c b31157739997841621968440f970778059a41946 -v
+
+In Python, the interface is not necessary, but this is a simple sample with a bit of everything.
+The MyClassInterface will have only 2 methods not defined in two different ways: one using **pass** and one using **raise**.
+
+When you have created **tests/testMyClassInterface.py** and added the new files, you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add tests/testMyClassInterface.py
+    $ git commit -m "step 4 - add the unit test for MyClassInterface"
+
+Step 5
+******
+
 To be continued ..
