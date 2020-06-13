@@ -99,4 +99,39 @@ When you have modified **setup.py** and added the new files, you can commit your
 Step 3
 ******
 
+Before write code, it is important to verbalize the concepts by documentation:
+so the documentation is important to learn a package as to plan how to write the code.
+
+You can write your documentation as you want: you can create docs folder like in this package, by `sphinx <https://simple-sample.readthedocs.io/en/latest/howtomake.html#documentation>`_.
+
+When you have created your documentation, you can add the new folder and you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add docs
+    $ git commit -m "step 3 - add documentation by sphinx"
+
+When a commit completes one feature or a set of fixies, you can tag that commit as a release.
+The standard behaviour is to add changes in a CHANGELOG file: see the changes of **CHANGELOG.md** by `GitHub <https://github.com/bilardi/python-prototype/commit/20b91ae691f29c96059dc3d3b355ab7c91eb9928>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c 20b91ae691f29c96059dc3d3b355ab7c91eb9928 -v | head -n 21
+
+So you can add CHANGELOG.md on your last commit, or you can create one commit for changelog, and then you can add the tag.
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add CHANGELOG.md
+    $ git commit --amend # add file on your last commit
+    $ git tag -d v0.0.1 -m "Empty package and documentation by sphinx" # create a tag with that version name
+    $ git tag -n # show the tag list with description
+    $ git push origin --tags # load the tag on repository
+
+Step 4
+******
+
 To be continued ..
