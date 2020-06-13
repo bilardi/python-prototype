@@ -158,4 +158,38 @@ When you have created **tests/testMyClassInterface.py** and added the new files,
 Step 5
 ******
 
+Now you can write your first class: see MyClassInterface by `GitHub <https://github.com/bilardi/python-prototype/commit/31b35d60e49878aa01fd8d7d6c47200d8696523b>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c 31b35d60e49878aa01fd8d7d6c47200d8696523b -v
+
+When you have created **simple_sample/myClassInterface.py**, you can run the unit tests of MyClassInterface
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ python3 -m unittest discover -v
+    test_my_class_interface_can_be_created (tests.testMyClassInterface.TestMyClassInterface) ... ok
+    test_my_class_interface_gets_bar_value (tests.testMyClassInterface.TestMyClassInterface) ... ok
+    test_my_class_interface_gets_qux_value (tests.testMyClassInterface.TestMyClassInterface) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 3 tests in 0.000s
+
+    OK
+
+It is a best practise to run unit tests after a change and before a commit.
+If the result is like the example (all tests are OK), you can add the new files and you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add simple_sample/myClassInterface.py
+    $ git commit -m "step 5 - add MyClassInterface and unit tests works properly"
+
+Step 6
+******
+
 To be continued ..
