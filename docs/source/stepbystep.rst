@@ -127,7 +127,7 @@ So you can add CHANGELOG.md on your last commit, or you can create one commit fo
     $ cd python-prototype
     $ git add CHANGELOG.md
     $ git commit --amend # add file on your last commit
-    $ git tag -d v0.0.1 -m "Empty package and documentation by sphinx" # create a tag with that version name
+    $ git tag v0.0.1 -m "Empty package and documentation by sphinx" # create a tag with that version name
     $ git tag -n # show the tag list with description
     $ git push origin --tags # load the tag on repository
 
@@ -301,4 +301,24 @@ If all test is OK, you can add the new file and you can commit your changes
 Step 10
 ******
 
-To be continued ..
+You are completed the package, so you can tag that commit as a release.
+This step could be run every time you complete a class with its unit test.
+The files that you have to update are **CHANGELOG.md**, **docs/source/conf.py** and **simple_sample/__init__.py**, because they contain version number.
+See the changes by `GitHub <https://github.com/bilardi/python-prototype/commit/999ce550c0b378011e94a76f654edf851c93ad52>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c 999ce550c0b378011e94a76f654edf851c93ad52 -v
+
+So you can add the files updated, you can create a commit dedicated, and then you can add the tag.
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add CHANGELOG.md docs/source/conf.py simple_sample/__init__.py
+    $ git commit -m "step 10 - update changelog and version of the simple-sample package"
+    $ git push origin master # load the commit on remote repository
+    $ git tag v0.0.4 -m "The first full version of the simple-sample package" # create a tag with that version name
+    $ git tag -n # show the tag list with description
+    $ git push origin --tags # load the tag on repository
