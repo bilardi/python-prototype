@@ -256,9 +256,49 @@ When you have created **tests/testMyClass.py** and added the new file, you can c
 
     $ cd python-prototype
     $ git add tests/testMyClass.py
-    $ git commit -m "step 6 - add the unit test for MyClass"
+    $ git commit -m "step 8 - add the unit test for MyClass"
 
 Step 9
+******
+
+After verbalizing all MyClass methods by the unit tests, you are ready to write the methods: see MyClass by `GitHub <https://github.com/bilardi/python-prototype/commit/84ce869d3ea3c5737d99b7b596be3fe4b3d826a4>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c 84ce869d3ea3c5737d99b7b596be3fe4b3d826a4 -v
+
+When you have created **simple_sample/myClass.py**, you can run all unit tests
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ python3 -m unittest discover -v
+    test_my_class_can_be_created (tests.testMyClass.TestMyClass) ... ok
+    test_my_class_gets_bar_value (tests.testMyClass.TestMyClass) ... ok
+    test_my_class_gets_baz_value (tests.testMyClass.TestMyClass) ... ok
+    test_my_class_gets_foo_value (tests.testMyClass.TestMyClass) ... ok
+    test_my_class_gets_fooquux_value (tests.testMyClass.TestMyClass) ... ok
+    test_my_class_gets_qux_value (tests.testMyClass.TestMyClass) ... ok
+    test_my_class_abstract_can_be_created (tests.testMyClassAbstract.TestMyClassAbstract) ... ok
+    test_my_class_interface_can_be_created (tests.testMyClassInterface.TestMyClassInterface) ... ok
+    test_my_class_interface_gets_bar_value (tests.testMyClassInterface.TestMyClassInterface) ... ok
+    test_my_class_interface_gets_qux_value (tests.testMyClassInterface.TestMyClassInterface) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 10 tests in 0.001s
+
+    OK
+
+If all test is OK, you can add the new file and you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add simple_sample/myClass.py
+    $ git commit -m "step 9 - add MyClass and unit tests works properly"
+
+Step 10
 ******
 
 To be continued ..
