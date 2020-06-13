@@ -211,4 +211,35 @@ When you have created **tests/testMyClassAbstract.py** and added the new file, y
 Step 7
 ******
 
+Now you can write your second class: see MyClassAbstract by `GitHub <https://github.com/bilardi/python-prototype/commit/ddb120bd0c14528b0c8b0caf223b387588725c50>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c ddb120bd0c14528b0c8b0caf223b387588725c50 -v
+
+When you have created **simple_sample/myClassAbstract.py**, you can run all unit tests like the command of step 5, or you can run only the unit tests of MyClassAbstract
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ python3 -m unittest -v tests/testMyClassAbstract.py
+    test_my_class_abstract_can_be_created (tests.testMyClassAbstract.TestMyClassAbstract) ... ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.000s
+
+    OK
+
+If the test is OK, you can add the new file and you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add simple_sample/myClassAbstract.py
+    $ git commit -m "step 7 - add MyClassAbstract and unit tests works properly"
+
+Step 8
+******
+
 To be continued ..
