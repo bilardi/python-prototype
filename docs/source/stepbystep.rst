@@ -147,7 +147,7 @@ In Python, a standard TDD is offered by unittest module: see the unit tests of M
 In Python, the interface is not necessary, but this is a simple sample with a bit of everything.
 The MyClassInterface will have only 2 methods not defined in two different ways: one using **pass** and one using **raise**.
 
-When you have created **tests/testMyClassInterface.py** and added the new files, you can commit your changes
+When you have created **tests/testMyClassInterface.py** and added the new file, you can commit your changes
 
 .. code-block:: bash
 
@@ -181,7 +181,7 @@ When you have created **simple_sample/myClassInterface.py**, you can run the uni
     OK
 
 It is a best practise to run unit tests after a change and before a commit.
-If the result is like the example (all tests are OK), you can add the new files and you can commit your changes
+If the result is like the example (all tests are OK), you can add the new file and you can commit your changes
 
 .. code-block:: bash
 
@@ -190,6 +190,25 @@ If the result is like the example (all tests are OK), you can add the new files 
     $ git commit -m "step 5 - add MyClassInterface and unit tests works properly"
 
 Step 6
+******
+
+If you need to use a framework, abstract class is a good method. The peculiarity of this is that it cannot be imported.
+So the unit tests are simple: see the unit tests of MyClassAbstract by `GitHub <https://github.com/bilardi/python-prototype/commit/fcec3fca61c7860a63969c6b6e56d951ab187489>`_ or by command line with see-git-steps
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ see-git-steps -c fcec3fca61c7860a63969c6b6e56d951ab187489 -v
+
+When you have created **tests/testMyClassAbstract.py** and added the new file, you can commit your changes
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git add tests/testMyClassAbstract.py
+    $ git commit -m "step 6 - add the unit test for MyClassAbstract"
+
+Step 7
 ******
 
 To be continued ..
