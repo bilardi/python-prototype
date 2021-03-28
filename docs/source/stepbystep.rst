@@ -1,5 +1,5 @@
 Step by step
-============================
+============
 
 This page is for learning all steps that they are necessary for writing a simple package like simple-sample.
 

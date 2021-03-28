@@ -28,7 +28,7 @@ Or you can install by python3-pip:
 Usage
 #####
 
-Read the unit tests in `tests/testMyClass.py <https://github.com/bilardi/python-prototype/tests/testMyClass.py>`_ file to use it. This is a best practice.
+Read the unit tests in `tests/testMyClass.py <https://github.com/bilardi/python-prototype/blob/master/tests/testMyClass.py>`_ file to use it. This is a best practice.
 You can read also the documentation by command line,
 
 .. code-block:: bash
@@ -60,9 +60,9 @@ Test with unittest module
 Change Log
 ##########
 
-See `CHANGELOG.md <https://github.com/bilardi/python-prototype/CHANGELOG.md>`_ for details.
+See `CHANGELOG.md <https://github.com/bilardi/python-prototype/blob/master/CHANGELOG.md>`_ for details.
 
 License
 #######
 
-This package is released under the MIT license.  See `LICENSE <https://github.com/bilardi/python-prototype/LICENSE>`_ for details.
+This package is released under the MIT license.  See `LICENSE <https://github.com/bilardi/python-prototype/blob/master/LICENSE>`_ for details.

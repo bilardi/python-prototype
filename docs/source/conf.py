@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'simple-sample'
-copyright = '2020, Alessandra Bilardi'
+copyright = '2021, Alessandra Bilardi'
 author = 'Alessandra Bilardi'
 
 # The full version, including alpha/beta/rc tags
