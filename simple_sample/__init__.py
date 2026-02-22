@@ -13,5 +13,5 @@ Package contents three files, and each file contains one class with the same nam
 # license MIT
 # support https://github.com/bilardi/python-prototype/issues
 """
-__version__ = "1.3.1"
+__version__ = "1.4.0"
 __author__ = "Alessandra Bilardi"
