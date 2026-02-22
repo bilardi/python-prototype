@@ -18,12 +18,12 @@
 # -- Project information -----------------------------------------------------
 
 project = 'simple-sample'
-copyright = '2021, Alessandra Bilardi'
+copyright = '2026, Alessandra Bilardi'
 author = 'Alessandra Bilardi'
 
 # The full version, including alpha/beta/rc tags
-version = '0.0.4'
-release = '0.0.4'
+version = "1.3.1"
+release = "1.3.1"
 
 # specify the master doc, otherwise the build at read the docs fails
 master_doc = 'index'
