@@ -7,8 +7,10 @@ It is part of the `educational repositories <https://github.com/pandle/materials
 See the documentation and how to do it on `readthedocs <https://simple-sample.readthedocs.io/en/latest/>`_.
 And see the development of this code step by step
 
-* with `see-git-steps <https://github.com/bilardi/see-git-steps>`_
-* on `readthedocs / step by step <https://simple-sample.readthedocs.io/en/latest/stepbystep.html>`_
+* with `see-git-steps <https://github.com/bilardi/see-git-steps>`_ on `readthedocs / step by step <https://simple-sample.readthedocs.io/en/latest/stepbystep.html>`_
+    * this page is old style: you can learn the concepts about to create before unit test and then the code
+    * but now a Python package is handled differently 
+* you can find the refactoring on  `readthedocs / refactoring <https://simple-sample.readthedocs.io/en/latest/refactoring.html>`_
 
 Installation
 ###############
@@ -50,17 +52,23 @@ Development
 
 It is common use to test the code step by step and unittest module is a good beginning for unit test and functional test.
 
-Test with unittest module
+With the need to mock so many libraries that call external APIs, the need arose to use simpler test libraries for this part, such as pytest.
 
-.. code-block:: bash
-
-    $ cd python-prototype
-    $ python3 -m unittest discover -v
+* you can find tests with unittest module on `Unit tests <https://simple-sample.readthedocs.io/en/latest/howtouse.html#unit-tests>`_ section
+* you can find tests with pytest module on `PyTest <https://simple-sample.readthedocs.io/en/latest/howtouse.html#pytest>`_ section
 
 Change Log
 ##########
 
 See `CHANGELOG.md <https://github.com/bilardi/python-prototype/blob/master/CHANGELOG.md>`_ for details.
+This file is updated by `Makefile <https://github.com/bilardi/python-prototype/blob/master/Makefile>`_ command:
+
+```sh
+make changelog
+```
+
+You can find the versioning management on  `readthedocs / versioning <https://simple-sample.readthedocs.io/en/latest/versioning.html>`_,
+because before to run the make command, you have to install dependences by `readthedocs / howtomake <https://simple-sample.readthedocs.io/en/latest/howtomake.html>`_ guide.
 
 License
 #######

@@ -1,11 +1,30 @@
 [build-system]
-requires = ["setuptools>=69"]
+requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "simple-sample"
 dynamic = ["version"]
 requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+description = "A simple sample of a Python package prototype"
+readme = "README.rst"
+authors = [
+  { name="Alessandra Bilardi", email="alessandra.bilardi@gmail.com" }
+]
+
+[project.urls]
+Homepage = "https://simple-sample.readthedocs.io/"
+Source = "https://github.com/bilardi/python-prototype"
+"Bug Reports" = "https://github.com/bilardi/python-prototype/issues"
+Funding = "https://donate.pypi.org"
+
+[tool.setuptools]
+packages = { find = {} }
 
 [tool.setuptools.dynamic]
 version = {attr = "simple_sample.__version__"}

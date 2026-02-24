@@ -1,7 +1,6 @@
 # Python prototype makefile
 
 PACKAGE_NAME = "simple-sample"
-YOUR_USERNAME = "bilardi"
 
 .PHONY: help # print this help list
 help:
@@ -21,21 +20,21 @@ doc:
 
 .PHONY: buildtest # build package on testpypi
 buildtest: clean
-	python3 setup.py sdist bdist_wheel; python3 -m twine upload --repository testpypi dist/*
+	python3 -m build; python3 -m twine upload --repository testpypi dist/*
 
 .PHONY: installtest # install package from testpypi
 installtest:
-	mkdir -p test; cd test; python3 -m pip install --upgrade --index-url https://test.pypi.org/simple/ --no-deps $(PACKAGE_NAME)-$(YOUR_USERNAME); cd -
+	mkdir -p test; cd test; uv pip install --upgrade --index-url https://test.pypi.org/simple/ --no-deps $(PACKAGE_NAME); cd -
 
 .PHONY: build # build package on pypi
 build: clean
-	python3 setup.py sdist bdist_wheel; python3 -m twine upload dist/*
+	python3 -m build; python3 -m twine upload dist/*
 
 .PHONY: install # install package from pypi
 install:
-	python3 -m pip install --upgrade $(PACKAGE_NAME)
+	uv pip install --upgrade $(PACKAGE_NAME)
 
-.PHONY: major minor patch
+.PHONY: major minor patch # update version, CHANGELOG.md and push with also tags
 VERSION = $(shell python -c "from $(PACKAGE_NAME) import __version__; print(__version__)")
 
 major:
