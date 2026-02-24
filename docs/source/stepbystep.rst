@@ -16,6 +16,15 @@ Getting started
 The goal of the package simple-sample is to create a Python package prototype. 
 So you can use this simple package for downloading a base for your package.
 
+This package has been refactored with new tools and best practises.
+So you can follow this guide only after to change the branch.
+
+.. code-block:: bash
+
+    $ cd python-prototype
+    $ git fetch origin
+    $ git checkout unittest
+
 Step 1
 ******
 
@@ -118,7 +127,7 @@ The standard behaviour is to add changes in a CHANGELOG file: see the changes of
 .. code-block:: bash
 
     $ cd python-prototype
-    $ see-git-steps -c 20b91ae691f29c96059dc3d3b355ab7c91eb9928 -v | head -n 21
+    $ see-git-steps -c 89c4563c7bdcbe5f50fd153c078aa813846cfd09 -v | head -n 21
 
 So you can add CHANGELOG.md on your last commit, or you can create one commit for changelog, and then you can add the tag.
 
