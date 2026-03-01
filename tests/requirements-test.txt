@@ -1,0 +1,9 @@
+black
+build
+bump-my-version
+git-cliff
+httpx
+pylint
+pytest
+pytest-asyncio
+twine
