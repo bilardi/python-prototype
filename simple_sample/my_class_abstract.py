@@ -26,7 +26,8 @@ class MyClassAbstract(metaclass=ABCMeta):
     An example of abstract class. If you need to use a framework, abstract class is a good method.
     There is a random boolean by baz function and an abstract method named foo function.
     It is not possible to instantiate a class with an abstract method.
-    And it is not possible to have an abstract method protected: it will be changed in a pubilc method.
+    And it is not possible to have an abstract method protected:
+    it will be changed in a pubilc method.
     """
 
     def baz(self):

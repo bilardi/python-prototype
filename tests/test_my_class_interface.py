@@ -1,11 +1,15 @@
 """Test class of MyClassInterface
 
-This is a basic unit test class. There is a test for each public function.
+There are basic unit tests. There is a test for each public function.
 If the functions contained conditions, there would be more tests for each public function.
 
 # license MIT
 # author Alessandra Bilardi <alessandra.bilardi@gmail.com>
 # see https://github.com/bilardi/python-prototype for details
+
+Only with unittest we need a class: pytest works with methods.
+
+$ uv run pytest
 """
 
 import pytest

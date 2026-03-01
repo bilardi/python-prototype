@@ -8,22 +8,25 @@ and foobar function of this class.
 # author Alessandra Bilardi <alessandra.bilardi@gmail.com>
 # see https://github.com/bilardi/python-prototype for details
 
-Note that the _quux method is not present in the documentation like the other methods because it is a method protected.
+Note that the _quux method is not present in the documentation like the other methods because
+it is a method protected.
 
-    >>> from simple_sample.myClass import MyClass
+    >>> from simple_sample.my_class import MyClass
     >>> help(MyClass)
 
 # cite https://stackoverflow.com/questions/11483366/protected-method-in-python/11483397#11483397
 
 Python does not support access protection as C++/Java/C# does. Everything is public.
-The motto is, "We're all adults here." Document your classes, and insist that your collaborators read and follow the documentation.
+The motto is, "We're all adults here." Document your classes, and insist that your collaborators
+read and follow the documentation.
 The culture in Python is that names starting with underscores mean,
-"don't use these unless you really know you should." You might choose to begin your "protected" methods with underscores.
+"don't use these unless you really know you should."
+You might choose to begin your "protected" methods with underscores.
 But keep in mind, this is just a convention, it doesn't change how the method can be accessed.
 """
 
-from simple_sample.myClassInterface import MyClassInterface
-from simple_sample.myClassAbstract import MyClassAbstract
+from simple_sample.my_class_interface import MyClassInterface
+from simple_sample.my_class_abstract import MyClassAbstract
 
 
 class MyClass(MyClassInterface, MyClassAbstract):
