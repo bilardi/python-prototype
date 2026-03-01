@@ -25,6 +25,7 @@ But keep in mind, this is just a convention, it doesn't change how the method ca
 from simple_sample.myClassInterface import MyClassInterface
 from simple_sample.myClassAbstract import MyClassAbstract
 
+
 class MyClass(MyClassInterface, MyClassAbstract):
     """
     An example of class that it extends an abstract class and it implements an interface.
@@ -33,10 +34,11 @@ class MyClass(MyClassInterface, MyClassAbstract):
         Args:
             bar(bool): a boolean value
     """
+
     # bar(bool): a class boolean variable with default True
     _bar = True
 
-    def __init__(self, bar = True):
+    def __init__(self, bar=True):
         """
         Initialization of variables
             Args:

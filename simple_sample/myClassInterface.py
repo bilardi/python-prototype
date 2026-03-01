@@ -1,7 +1,7 @@
 """An example of interface class
 
 An example of interface class, but interfaces are not necessary in Python.
-There are two examples of methods without implementation: bar returns None and qux returns an exception. 
+There are two examples of methods without implementation: bar returns None and qux returns an exception.
 
 # license MIT
 # author Alessandra Bilardi <alessandra.bilardi@gmail.com>
@@ -13,11 +13,13 @@ and also ducktyping, which means that the places where you must have interfaces 
 you don't have to have them in Python.
 """
 
-class MyClassInterface():
+
+class MyClassInterface:
     """
     An example of interface class. Interfaces are not necessary in Python.
-    There are two examples of methods without implementation: bar returns None and qux returns an exception. 
+    There are two examples of methods without implementation: bar returns None and qux returns an exception.
     """
+
     def bar(self) -> bool:
         """
         Bar

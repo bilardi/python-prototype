@@ -20,6 +20,7 @@ such as distinguishing between mappings and sequences.
 from abc import ABCMeta, abstractmethod
 import random
 
+
 class MyClassAbstract(metaclass=ABCMeta):
     """
     An example of abstract class. If you need to use a framework, abstract class is a good method.
@@ -27,6 +28,7 @@ class MyClassAbstract(metaclass=ABCMeta):
     It is not possible to instantiate a class with an abstract method.
     And it is not possible to have an abstract method protected: it will be changed in a pubilc method.
     """
+
     def baz(self):
         """
         Baz gets a random boolean
