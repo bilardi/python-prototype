@@ -1,6 +1,7 @@
 # Python prototype makefile
 
 PACKAGE_NAME = "simple-sample"
+LIBRARY_NAME = "simple_sample"
 
 .PHONY: help # print this help list
 help:
@@ -35,7 +36,7 @@ install:
 	uv pip install --upgrade $(PACKAGE_NAME)
 
 .PHONY: major minor patch # update version, CHANGELOG.md and push with also tags
-VERSION = $(shell python -c "from $(PACKAGE_NAME) import __version__; print(__version__)")
+VERSION = $(shell python -c "from $(LIBRARY_NAME) import __version__; print(__version__)")
 
 major:
 	$(MAKE) release PART=major
