@@ -24,26 +24,27 @@ import random
 class MyClassAbstract(metaclass=ABCMeta):
     """
     An example of abstract class. If you need to use a framework, abstract class is a good method.
-    There is a random boolean by baz function and an abstract method named foo function.
+    There is a random boolean by implemented_method function and
+    an abstract method named get_param_processing function.
     It is not possible to instantiate a class with an abstract method.
     And it is not possible to have an abstract method protected:
     it will be changed in a pubilc method.
     """
 
-    def baz(self):
+    def get_random_boolean(self):
         """
-        Baz gets a random boolean
+        Implemented method gets a random boolean
             Returns:
                 A random boolean value
         """
         return bool(random.getrandbits(1))
 
     @abstractmethod
-    def foo(self, foo) -> bool:
+    def get_param_processing(self, param) -> bool:
         """
-        Foo
+        Not implemented and abstract method
             Args:
-                foo(bool): a boolean value
+                param(bool): a boolean value
             Returns:
                 A boolean value
             Raises:

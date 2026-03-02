@@ -19,19 +19,20 @@ class MyClassInterface:
     """
     An example of interface class. Interfaces are not necessary in Python.
     There are two examples of methods without implementation:
-    bar returns None and qux returns an exception.
+    get_boolean returns None
+    and method_with_not_implemented_error returns an exception.
     """
 
-    def bar(self) -> bool:
+    def get_boolean(self) -> bool:
         """
-        Bar
+        Method without implementation
             Returns:
                 A boolean value
         """
 
-    def qux(self) -> bool:
+    def method_with_not_implemented_error(self) -> bool:
         """
-        Qux
+        Method with not implemented error
             Returns:
                 A boolean value
         """

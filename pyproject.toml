@@ -144,7 +144,7 @@ target-version = ["py313"]
 [tool.pylint.main]
 py-version = "3.13"
 recursive = true
-ignore = [".venv"]
+ignore = [".venv", "docs"]
 
 [tool.pylint.format]
 max-line-length = 100

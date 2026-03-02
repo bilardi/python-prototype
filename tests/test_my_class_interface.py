@@ -13,11 +13,12 @@ $ uv run pytest
 """
 
 import pytest
-from simple_sample.myClassInterface import MyClassInterface
+from simple_sample.my_class_interface import MyClassInterface
 
 
 @pytest.fixture
 def mci():
+    """Instantiates the class"""
     return MyClassInterface()
 
 
@@ -26,12 +27,13 @@ def test_my_class_interface_can_be_created(mci):
     assert isinstance(mci, MyClassInterface)
 
 
-def test_my_class_interface_gets_bar_value(mci):
-    """Verifies if the class MyClassInterface bar method return None"""
-    assert mci.bar() is None
+def test_my_class_interface_gets_get_boolean_value(mci):
+    """Verifies if the class MyClassInterface get_boolean method return None"""
+    assert mci.get_boolean() is None
 
 
-def test_my_class_interface_gets_qux_value(mci):
-    """Verifies if the class MyClassInterface qux method raises an exception"""
+def test_my_class_interface_gets_method_with_not_implemented_error_value(mci):
+    """Verifies if the class MyClassInterface
+    method_with_not_implemented_error method raises an exception"""
     with pytest.raises(NotImplementedError):
-        mci.qux()
+        mci.method_with_not_implemented_error()

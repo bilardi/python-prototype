@@ -1,7 +1,8 @@
 """An example of class
 
 An example of class that it extends an abstract class and it implements an interface.
-There is a boolean pun by foo function of abstract class, bar function of interface class,
+There is a boolean pun by not_implemented_and_abstract_method function of abstract class,
+get_boolean function of interface class,
 and foobar function of this class.
 
 # license MIT
@@ -32,66 +33,67 @@ from simple_sample.my_class_abstract import MyClassAbstract
 class MyClass(MyClassInterface, MyClassAbstract):
     """
     An example of class that it extends an abstract class and it implements an interface.
-    There is a boolean pun by foo function of abstract class, bar function of interface class,
+    There is a boolean pun by not_implemented_and_abstract_method function of abstract class,
+    get_boolean function of interface class,
     and foobar function of this class.
         Args:
-            bar(bool): a boolean value
+            param(bool): a boolean value
     """
 
-    # bar(bool): a class boolean variable with default True
-    _bar = True
+    # param(bool): a class boolean variable with default True
+    _protected_param = True
 
-    def __init__(self, bar=True):
+    def __init__(self, param=True):
         """
         Initialization of variables
             Args:
-                bar(bool): a boolean value
+                param(bool): a boolean value
         """
-        self._bar = bar
+        self._protected_param = param
 
-    def foo(self, foo):
+    def get_param_processing(self, param):
         """
-        Foo gets reverse value of foo
+        Override of the abstract method gets reverse value of param
             Args:
-                foo(bool): a boolean value
+                param(bool): a boolean value
             Returns:
-                The reverse value of foo
+                The reverse value of param
         """
-        return not foo
+        return not param
 
-    def bar(self):
+    def get_boolean(self):
         """
-        Bar
+        Method override of the class MyClassInterface
             Returns:
-                The boolean value of _bar
+                The boolean value of _protected_param
         """
-        return self._bar
+        return self._protected_param
 
-    def foobar(self):
+    def get_reverse_protected_param(self):
         """
-        Foobar gets reverse value of _bar
+        Gets reverse value of _protected_param
             Returns:
-                The reverse value of _bar
+                The reverse value of _protected_param
         """
-        return self.foo(self._bar)
+        return self.get_param_processing(self._protected_param)
 
-    def _quux(self):
+    def _protected_method(self):
         """
-        Quux recalls some methods
+        Protected method recalls some methods
             Returns:
                 The boolean value
         """
         try:
-            if MyClassInterface.bar(self) is None:
-                MyClassInterface.qux(self)
+            if MyClassInterface.get_boolean(self) is None:
+                MyClassInterface.method_with_not_implemented_error(self)
         except NotImplementedError:
-            return self.baz()
+            return self.get_random_boolean()
         return True
 
-    def fooquux(self):
+    def get_reverse_boolean(self):
         """
-        Fooquux gets reverse value of protected method _quux
+        Gets reverse value of the protected method _protected_method
             Returns:
                 The boolean value
         """
-        return self.foo(self._quux())
+        return self.get_param_processing(self._protected_method())

@@ -14,7 +14,7 @@ $ uv run pytest
 """
 
 import pytest
-from simple_sample.myClassAbstract import MyClassAbstract
+from simple_sample.my_class_abstract import MyClassAbstract
 
 
 def test_my_class_abstract_can_be_created():
