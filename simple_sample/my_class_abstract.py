@@ -32,7 +32,7 @@ class MyClassAbstract(metaclass=ABCMeta):
     it will be changed in a pubilc method.
     """
 
-    def get_random_boolean(self):
+    def get_random_boolean(self) -> bool:
         """Get a random boolean.
 
         Returns:
@@ -41,7 +41,7 @@ class MyClassAbstract(metaclass=ABCMeta):
         return bool(random.getrandbits(1))
 
     @abstractmethod
-    def get_param_processing(self, param) -> bool:
+    def get_param_processing(self, param:bool) -> bool:
         """Get boolean by param processing.
 
         Not implemented and abstract method

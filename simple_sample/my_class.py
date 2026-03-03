@@ -44,7 +44,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
     # param(bool): a class boolean variable with default True
     _protected_param = True
 
-    def __init__(self, param=True):
+    def __init__(self, param:bool=True) -> None:
         """Initialize of variables.
 
         Args:
@@ -52,7 +52,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
         """
         self._protected_param = param
 
-    def get_param_processing(self, param):
+    def get_param_processing(self, param:bool) -> bool:
         """Override of the abstract method gets reverse value of param.
 
         Args:
@@ -62,7 +62,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
         """
         return not param
 
-    def get_boolean(self):
+    def get_boolean(self) -> bool:
         """Override of the class MyClassInterface.
 
         Returns:
@@ -70,7 +70,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
         """
         return self._protected_param
 
-    def get_reverse_protected_param(self):
+    def get_reverse_protected_param(self) -> bool:
         """Get reverse value of _protected_param.
 
         Returns:
@@ -78,7 +78,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
         """
         return self.get_param_processing(self._protected_param)
 
-    def _protected_method(self):
+    def _protected_method(self) -> bool:
         """Protected method recalls some methods.
 
         Returns:
@@ -91,7 +91,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
             return self.get_random_boolean()
         return True
 
-    def get_reverse_boolean(self):
+    def get_reverse_boolean(self) -> bool:
         """Get reverse value of the protected method _protected_method.
 
         Returns:

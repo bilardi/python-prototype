@@ -164,30 +164,22 @@ output-format = "grouped"
 target-version = "py313"
 
 [tool.ruff.lint]
-select = [
-  "ARG", # lake8-unused-arguments
-  "B", # flake8-bugbear
-  "D", # pydocstyle
-  "E", # pycodestyle error
-  "F", # pyflakes
-  "I", # isort
-  "N", # pep8-naming
-  "PT", # lake8-pytest-style
-  "Q", # flake8-quotes
-  "RUF", # Ruff-specific rules
-  "S", # flake8-bandit
-  "W", # pycodestyle warning
-]
+select = ["ALL"]
 ignore = [
   "D203", # incorrect-blank-line-before-class
   "D213", # multi-line-summary-second-line
   "D413", # Missing blank line after last section ("Args", "Returns")
   "D415", # First line should end with a period, question mark, or exclamation point
+  "EXE002", # The file is executable but no shebang is present
+  "FBT", # positional argument in function definition or call
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["D104"] # Missing docstring in public package
-"tests/**" = ["S101"] # Use of `assert` detected
+"tests/**" = [
+  "ANN", # Missing return / type annotation for public function
+  "S101" # Use of `assert` detected
+]
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -195,3 +187,6 @@ docstring-code-line-length = 100
 indent-style = "space"
 line-ending = "auto"
 quote-style = "double"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
