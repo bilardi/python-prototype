@@ -13,6 +13,7 @@ $ uv run pytest
 """
 
 import pytest
+
 from simple_sample.my_class import MyClass
 
 

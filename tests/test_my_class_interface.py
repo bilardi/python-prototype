@@ -13,6 +13,7 @@ $ uv run pytest
 """
 
 import pytest
+
 from simple_sample.my_class_interface import MyClassInterface
 
 
@@ -34,6 +35,7 @@ def test_my_class_interface_gets_get_boolean_value(mci):
 
 def test_my_class_interface_gets_method_with_not_implemented_error_value(mci):
     """Verifies if the class MyClassInterface
-    method_with_not_implemented_error method raises an exception"""
+    method_with_not_implemented_error method raises an exception
+    """
     with pytest.raises(NotImplementedError):
         mci.method_with_not_implemented_error()

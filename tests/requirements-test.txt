@@ -6,4 +6,5 @@ httpx
 pylint
 pytest
 pytest-asyncio
+ruff
 twine

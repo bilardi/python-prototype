@@ -17,13 +17,12 @@ ABCs are intended to solve problems that don't have a good solution at all in Py
 such as distinguishing between mappings and sequences.
 """
 
-from abc import ABCMeta, abstractmethod
 import random
+from abc import ABCMeta, abstractmethod
 
 
 class MyClassAbstract(metaclass=ABCMeta):
-    """
-    An example of abstract class. If you need to use a framework, abstract class is a good method.
+    """An example of abstract class. If you need to use a framework, abstract class is a good method.
     There is a random boolean by implemented_method function and
     an abstract method named get_param_processing function.
     It is not possible to instantiate a class with an abstract method.
@@ -32,22 +31,20 @@ class MyClassAbstract(metaclass=ABCMeta):
     """
 
     def get_random_boolean(self):
-        """
-        Implemented method gets a random boolean
-            Returns:
-                A random boolean value
+        """Implemented method gets a random boolean
+        Returns:
+            A random boolean value
         """
         return bool(random.getrandbits(1))
 
     @abstractmethod
     def get_param_processing(self, param) -> bool:
-        """
-        Not implemented and abstract method
-            Args:
-                param(bool): a boolean value
-            Returns:
-                A boolean value
-            Raises:
-                NotImplementedError
+        """Not implemented and abstract method
+        Args:
+            param(bool): a boolean value
+        Returns:
+            A boolean value
+        Raises:
+            NotImplementedError
         """
         raise NotImplementedError

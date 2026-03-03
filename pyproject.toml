@@ -151,3 +151,38 @@ max-line-length = 100
 
 [tool.pylint.messages_control]
 disable = []
+
+# ---------------------------------------------------------------------------
+# ruff
+# ---------------------------------------------------------------------------
+
+[tool.ruff]
+exclude = [".venv", "docs"]
+fix = true
+line-length = 100
+output-format = "grouped"
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+  "ARG", # lake8-unused-arguments
+  "B", # flake8-bugbear
+  "D", # pydocstyle
+  "E", # pycodestyle error
+  "F", # pyflakes
+  "I", # isort
+  "N", # pep8-naming
+  "PT", # lake8-pytest-style
+  "Q", # flake8-quotes
+  "RUF", # Ruff-specific rules
+  "S", # flake8-bandit
+  "W", # pycodestyle warning
+]
+ignore = []
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 100
+indent-style = "space"
+line-ending = "auto"
+quote-style = "double"
