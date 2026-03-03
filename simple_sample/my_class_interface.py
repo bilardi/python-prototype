@@ -1,4 +1,4 @@
-"""An example of interface class
+"""An example of interface class.
 
 An example of interface class, but interfaces are not necessary in Python.
 There are two examples of methods without implementation:
@@ -16,20 +16,26 @@ you don't have to have them in Python.
 
 
 class MyClassInterface:
-    """An example of interface class. Interfaces are not necessary in Python.
+    """An example of interface class.
+
+    Interfaces are not necessary in Python.
     There are two examples of methods without implementation:
     get_boolean returns None
     and method_with_not_implemented_error returns an exception.
     """
 
     def get_boolean(self) -> bool:
-        """Method without implementation
+        """Get boolean.
+
+        Method without implementation
+
         Returns:
             A boolean value
         """
 
     def method_with_not_implemented_error(self) -> bool:
-        """Method with not implemented error
+        """Not implemented method.
+
         Returns:
             A boolean value
         """

@@ -178,7 +178,16 @@ select = [
   "S", # flake8-bandit
   "W", # pycodestyle warning
 ]
-ignore = []
+ignore = [
+  "D203", # incorrect-blank-line-before-class
+  "D213", # multi-line-summary-second-line
+  "D413", # Missing blank line after last section ("Args", "Returns")
+  "D415", # First line should end with a period, question mark, or exclamation point
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["D104"] # Missing docstring in public package
+"tests/**" = ["S101"] # Use of `assert` detected
 
 [tool.ruff.format]
 docstring-code-format = true

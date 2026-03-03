@@ -1,4 +1,4 @@
-"""Test class of MyClassAbstract
+"""Test class of MyClassAbstract.
 
 There are basic unit tests.
 It is not possible to instantiate a class with an abstract method,
@@ -19,6 +19,6 @@ from simple_sample.my_class_abstract import MyClassAbstract
 
 
 def test_my_class_abstract_can_be_created():
-    """Verifies if the class MyClassAbstract raises an exception"""
+    """Verifies if the class MyClassAbstract raises an exception."""
     with pytest.raises(TypeError):
         MyClassAbstract()

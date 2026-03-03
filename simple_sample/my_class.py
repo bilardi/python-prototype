@@ -1,4 +1,4 @@
-"""An example of class
+"""An example of class.
 
 An example of class that it extends an abstract class and it implements an interface.
 There is a boolean pun by not_implemented_and_abstract_method function of abstract class,
@@ -32,27 +32,29 @@ from simple_sample.my_class_interface import MyClassInterface
 
 class MyClass(MyClassInterface, MyClassAbstract):
     """An example of class that it extends an abstract class and it implements an interface.
+
     There is a boolean pun by not_implemented_and_abstract_method function of abstract class,
     get_boolean function of interface class,
     and foobar function of this class.
 
     Args:
             param(bool): a boolean value
-
     """
 
     # param(bool): a class boolean variable with default True
     _protected_param = True
 
     def __init__(self, param=True):
-        """Initialization of variables
+        """Initialize of variables.
+
         Args:
             param(bool): a boolean value
         """
         self._protected_param = param
 
     def get_param_processing(self, param):
-        """Override of the abstract method gets reverse value of param
+        """Override of the abstract method gets reverse value of param.
+
         Args:
             param(bool): a boolean value
         Returns:
@@ -61,21 +63,24 @@ class MyClass(MyClassInterface, MyClassAbstract):
         return not param
 
     def get_boolean(self):
-        """Method override of the class MyClassInterface
+        """Override of the class MyClassInterface.
+
         Returns:
             The boolean value of _protected_param
         """
         return self._protected_param
 
     def get_reverse_protected_param(self):
-        """Gets reverse value of _protected_param
+        """Get reverse value of _protected_param.
+
         Returns:
             The reverse value of _protected_param
         """
         return self.get_param_processing(self._protected_param)
 
     def _protected_method(self):
-        """Protected method recalls some methods
+        """Protected method recalls some methods.
+
         Returns:
             The boolean value
         """
@@ -87,7 +92,8 @@ class MyClass(MyClassInterface, MyClassAbstract):
         return True
 
     def get_reverse_boolean(self):
-        """Gets reverse value of the protected method _protected_method
+        """Get reverse value of the protected method _protected_method.
+
         Returns:
             The boolean value
         """

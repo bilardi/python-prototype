@@ -1,4 +1,4 @@
-"""An example of package
+"""An example of package.
 
 This package contains an example of module like a prototype that you can follow for yours.
 The package is self-consistent: it contains three classes and some unit tests.
