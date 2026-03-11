@@ -1,9 +1,8 @@
-black
 build
 bump-my-version
 git-cliff
 httpx
-pylint
+pyright
 pytest
 pytest-asyncio
 ruff

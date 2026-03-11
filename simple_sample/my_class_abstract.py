@@ -41,7 +41,7 @@ class MyClassAbstract(metaclass=ABCMeta):
         return bool(random.getrandbits(1))
 
     @abstractmethod
-    def get_param_processing(self, param:bool) -> bool:
+    def get_param_processing(self, param: bool) -> bool:
         """Get boolean by param processing.
 
         Not implemented and abstract method

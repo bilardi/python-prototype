@@ -132,27 +132,6 @@ asyncio_mode = "auto"
 testpaths = ["tests"]
 
 # ---------------------------------------------------------------------------
-# black
-# ---------------------------------------------------------------------------
-[tool.black]
-line-length = 100
-target-version = ["py313"]
-
-# ---------------------------------------------------------------------------
-# pylint
-# ---------------------------------------------------------------------------
-[tool.pylint.main]
-py-version = "3.13"
-recursive = true
-ignore = [".venv", "docs"]
-
-[tool.pylint.format]
-max-line-length = 100
-
-[tool.pylint.messages_control]
-disable = []
-
-# ---------------------------------------------------------------------------
 # ruff
 # ---------------------------------------------------------------------------
 
@@ -166,12 +145,14 @@ target-version = "py313"
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
+  "COM812", # missing trailing comma # conflict with formatter
   "D203", # incorrect-blank-line-before-class
   "D213", # multi-line-summary-second-line
   "D413", # Missing blank line after last section ("Args", "Returns")
   "D415", # First line should end with a period, question mark, or exclamation point
   "EXE002", # The file is executable but no shebang is present
   "FBT", # positional argument in function definition or call
+  "ISC001", # implicit string concatenation # conflict with formatter
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -190,3 +171,14 @@ quote-style = "double"
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
+
+# ---------------------------------------------------------------------------
+# pyright
+# ---------------------------------------------------------------------------
+
+[tool.pyright]
+exclude = ["**/__pycache__"]
+include = ["simple_sample"]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+

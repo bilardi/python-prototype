@@ -44,7 +44,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
     # param(bool): a class boolean variable with default True
     _protected_param = True
 
-    def __init__(self, param:bool=True) -> None:
+    def __init__(self, param: bool = True) -> None:
         """Initialize of variables.
 
         Args:
@@ -52,7 +52,7 @@ class MyClass(MyClassInterface, MyClassAbstract):
         """
         self._protected_param = param
 
-    def get_param_processing(self, param:bool) -> bool:
+    def get_param_processing(self, param: bool) -> bool:
         """Override of the abstract method gets reverse value of param.
 
         Args:
