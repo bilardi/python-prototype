@@ -2,6 +2,7 @@ build
 bump-my-version
 git-cliff
 httpx
+pre-commit
 pyright
 pytest
 pytest-asyncio
