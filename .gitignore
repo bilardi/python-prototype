@@ -1,7 +1,13 @@
 *#*#
+*.egg-info
 *~
 *pyc
-*.egg-info
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+__pycache__/
 build
 dist
 docs/build
+workshop
