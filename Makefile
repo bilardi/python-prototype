@@ -21,19 +21,25 @@ doc:
 
 .PHONY: buildtest # build package on testpypi
 buildtest: clean
-	python3 -m build; python3 -m twine upload --repository testpypi dist/*
+	uv run python -m build; uv run python -m twine upload --repository testpypi dist/*
 
-.PHONY: installtest # install package from testpypi
+.PHONY: installtest # install package from testpypi in a sandbox venv and verify
 installtest:
-	mkdir -p test; cd test; uv pip install --upgrade --index-url https://test.pypi.org/simple/ --no-deps $(PACKAGE_NAME); cd -
+	uv venv --clear .installtest
+	uv pip install --python .installtest/bin/python --upgrade --index-url https://test.pypi.org/simple/ --no-deps $(PACKAGE_NAME)
+	.installtest/bin/python -c "import $(LIBRARY_NAME); print($(LIBRARY_NAME).__version__)"
+	rm -rf .installtest
 
 .PHONY: build # build package on pypi
 build: clean
-	python3 -m build; python3 -m twine upload dist/*
+	uv run python -m build; uv run python -m twine upload dist/*
 
-.PHONY: install # install package from pypi
+.PHONY: install # install package from pypi in a sandbox venv and verify
 install:
-	uv pip install --upgrade $(PACKAGE_NAME)
+	uv venv --clear .install
+	uv pip install --python .install/bin/python --upgrade $(PACKAGE_NAME)
+	.install/bin/python -c "import $(LIBRARY_NAME); print($(LIBRARY_NAME).__version__)"
+	rm -rf .install
 
 .PHONY: major minor patch # update version, CHANGELOG.md and push with also tags
 major:

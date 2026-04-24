@@ -188,11 +188,6 @@ include = ["simple_sample"]
 pythonVersion = "3.13"
 typeCheckingMode = "strict"
 
-[tool.uv.workspace]
-members = [
-    "test",
-]
-
 [dependency-groups]
 dev = [
     "build>=1.4.4",

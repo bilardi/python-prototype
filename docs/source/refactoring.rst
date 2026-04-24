@@ -575,9 +575,38 @@ The story is not finished at local ``make doc``: `Read the Docs <https://readthe
 
 The file ``.readthedocs.yaml`` in the project root tells Read the Docs which Python version to use, how to install dependencies with ``uv`` and where ``conf.py`` lives. The key entry is ``python.install.method: uv`` with ``command: sync`` and ``groups: [dev]``: this uses the native Read the Docs integration (`docs <https://docs.readthedocs.com/platform/stable/config-file/v2.html>`_) to run ``uv sync --group dev`` on their build machine, the same command that works locally, without ``pip install uv`` workarounds in ``build.jobs``.
 
+Step 12
+*******
+
+After tagging a release on GitHub (`Step 4`_), the next step is to publish the package on `PyPI <https://pypi.org/>`_. Before uploading to the production index, it is a good practice to test the upload on `TestPyPI <https://test.pypi.org/>`_: same API and flow, but a separate index for experiments.
+
+The Makefile has four targets for this workflow:
+
+.. code-block:: bash
+
+    $ make buildtest  # build the wheel and upload to TestPyPI
+    $ make installtest  # install the package from TestPyPI in a sandbox venv and verify the import
+    $ make build  # build the wheel and upload to PyPI
+    $ make install  # install the package from PyPI in a sandbox venv and verify the import
+
+All four targets prefix ``uv run`` for the build and twine commands, so they work without activating the project venv.
+
+The ``installtest`` and ``install`` targets use a throwaway venv (``.installtest/`` or ``.install/``) so that the install is tested end-to-end:
+
+* create a clean venv with ``uv venv --clear``
+* install the package in that venv with ``uv pip install --python ...``, downloading the wheel from (Test)PyPI
+* verify the import by printing the version with ``python -c "import ..."``
+* delete the venv
+
+Without the sandbox venv, ``uv pip install`` would just audit the already-installed editable version in the project ``.venv/`` and download nothing from (Test)PyPI.
+
 Conclusion
 ##########
 
-You have completed the refactoring of the package: the codebase now uses ``pyproject.toml`` (with `dependency-groups <https://peps.python.org/pep-0735/>`_), ``pytest``, ``ruff``, ``pyright`` and ``pre-commit``. Every time you finish a class with its unit test, you can release
-a new version with ``make patch`` / ``make minor`` / ``make major`` (see `Step 4`_), which updates
-``CHANGELOG.md``, bumps the version and pushes commit and tag in one step.
+You have completed the refactoring of the package: the codebase now uses ``pyproject.toml`` (with `dependency-groups <https://peps.python.org/pep-0735/>`_), ``pytest``, ``ruff``, ``pyright`` and ``pre-commit``.
+
+Every time you finish a class with its unit test, you can:
+
+* release with ``make patch`` / ``make minor`` / ``make major`` (see `Step 4`_): updates ``CHANGELOG.md``, bumps the version, pushes commit and tag in one step
+* publish on TestPyPI with ``make buildtest`` and verify with ``make installtest`` (see `Step 12`_)
+* publish on PyPI with ``make build`` when the release is stable
