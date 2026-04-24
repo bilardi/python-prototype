@@ -526,10 +526,39 @@ If the step fails, the pre-commit package tells you where and why: for example, 
 
     pytest...................................................................Passed
 
+Step 11
+*******
+
+Before the refactoring, the dev dependencies were listed in ``tests/requirements-test.txt``:
+
+.. code-block:: bash
+
+    build
+    bump-my-version
+    git-cliff
+    httpx
+    pre-commit
+    pyright
+    pytest
+    pytest-asyncio
+    ruff
+    twine
+
+With `uv <https://pypi.org/project/uv/>`_ and the new `dependency groups <https://peps.python.org/pep-0735/>`_ (PEP 735), the same list lives directly in ``pyproject.toml``. You can migrate the requirements file in one command:
+
+.. code-block:: bash
+
+    $ uv add --dev -r tests/requirements-test.txt
+
+``uv`` reads the requirements file, resolves the versions, writes a ``[dependency-groups]`` section in ``pyproject.toml``, updates ``uv.lock`` and installs everything in ``.venv/``. After this, ``tests/requirements-test.txt`` is redundant and can be removed.
+
+.. note::
+
+    The command fails if ``requires-python`` in ``pyproject.toml`` is lower than what any dev tool requires. In this project, ``git-cliff`` needs Python >= 3.7, while the original ``requires-python = ">=3.6"`` was a pre-refactoring leftover. Align ``requires-python`` to the target version (``>=3.13`` here, matching `target-version <https://docs.astral.sh/ruff/settings/#target-version>`_ for ruff and `pythonVersion <https://microsoft.github.io/pyright/#/configuration?id=main-configuration-options>`_ for pyright) before running ``uv add``.
+
 Conclusion
 ##########
 
-You have completed the refactoring of the package: the codebase now uses ``pyproject.toml``, ``pytest``,
-``ruff``, ``pyright`` and ``pre-commit``. Every time you finish a class with its unit test, you can release
+You have completed the refactoring of the package: the codebase now uses ``pyproject.toml`` (with `dependency-groups <https://peps.python.org/pep-0735/>`_), ``pytest``, ``ruff``, ``pyright`` and ``pre-commit``. Every time you finish a class with its unit test, you can release
 a new version with ``make patch`` / ``make minor`` / ``make major`` (see `Step 4`_), which updates
 ``CHANGELOG.md``, bumps the version and pushes commit and tag in one step.
