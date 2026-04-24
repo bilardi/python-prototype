@@ -1,22 +1,15 @@
 # run the command "pre-commit install" when you clone the repository
 # the command installs a git-hook in .git/hooks/pre-commit
 repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.6
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
   - repo: local
     hooks:
-      - id: ruff-check
-        name: ruff-check
-        entry: uv run ruff check .
-        language: system
-        pass_filenames: false
-        always_run: true
-
-      - id: ruff-format
-        name: ruff-format
-        entry: uv run ruff format .
-        language: system
-        pass_filenames: false
-        always_run: true
-
       - id: pytest
         name: pytest
         entry: uv run pytest .

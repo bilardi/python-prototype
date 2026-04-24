@@ -36,8 +36,6 @@ install:
 	uv pip install --upgrade $(PACKAGE_NAME)
 
 .PHONY: major minor patch # update version, CHANGELOG.md and push with also tags
-VERSION = $(shell python -c "from $(LIBRARY_NAME) import __version__; print(__version__)")
-
 major:
 	$(MAKE) release PART=major
 
@@ -49,11 +47,8 @@ patch:
 
 release:
 	bump-my-version bump $(PART)
-	git-cliff --config pyproject.toml --output CHANGELOG.md
-	sed -i 's/<!-- [0-9]* -->//g' CHANGELOG.md
-	git add CHANGELOG.md
-	git commit --amend --no-edit
-	git tag -f v$(VERSION)
+	$(MAKE) changelog
+	git tag -f v$$(python -c "from simple_sample import __version__; print(__version__)")
 	git push && git push --tags --force
 
 .PHONY: changelog # update CHANGELOG.md and amend it on the commit
