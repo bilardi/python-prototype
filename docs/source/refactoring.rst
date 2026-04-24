@@ -556,6 +556,25 @@ With `uv <https://pypi.org/project/uv/>`_ and the new `dependency groups <https:
 
     The command fails if ``requires-python`` in ``pyproject.toml`` is lower than what any dev tool requires. In this project, ``git-cliff`` needs Python >= 3.7, while the original ``requires-python = ">=3.6"`` was a pre-refactoring leftover. Align ``requires-python`` to the target version (``>=3.13`` here, matching `target-version <https://docs.astral.sh/ruff/settings/#target-version>`_ for ruff and `pythonVersion <https://microsoft.github.io/pyright/#/configuration?id=main-configuration-options>`_ for pyright) before running ``uv add``.
 
+The same pattern applies to `sphinx <https://pypi.org/project/sphinx/>`_ and its theme, needed to build this documentation. They are added as dev deps in the same way:
+
+.. code-block:: bash
+
+    $ uv add --dev sphinx sphinx_rtd_theme
+
+The Sphinx-generated ``docs/Makefile`` expects a ``sphinx-build`` in the ``PATH``. To make ``make doc`` work without activating the venv, the ``doc`` target in the project ``Makefile`` overrides the ``SPHINXBUILD`` variable with ``uv run sphinx-build``:
+
+.. code-block:: make
+
+    doc:
+    	cd docs; make html SPHINXBUILD="uv run sphinx-build"; cd -
+
+This way the binary is resolved through ``uv run`` without touching the auto-generated ``docs/Makefile``.
+
+The story is not finished at local ``make doc``: `Read the Docs <https://readthedocs.org/>`_ builds the documentation on its own infrastructure, and needs to know how to install the dev dependencies before running Sphinx. Without a configuration file, the build on Read the Docs fails (release 1.5.1 failed for this reason).
+
+The file ``.readthedocs.yaml`` in the project root tells Read the Docs which Python version to use, how to install dependencies with ``uv`` and where ``conf.py`` lives. The key entry is ``python.install.method: uv`` with ``command: sync`` and ``groups: [dev]``: this uses the native Read the Docs integration (`docs <https://docs.readthedocs.com/platform/stable/config-file/v2.html>`_) to run ``uv sync --group dev`` on their build machine, the same command that works locally, without ``pip install uv`` workarounds in ``build.jobs``.
+
 Conclusion
 ##########
 
