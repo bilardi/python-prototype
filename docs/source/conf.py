@@ -22,8 +22,8 @@ copyright = "2026, Alessandra Bilardi"
 author = "Alessandra Bilardi"
 
 # The full version, including alpha/beta/rc tags
-version = "1.5.2"
-release = "1.5.2"
+version = "1.5.3"
+release = "1.5.3"
 
 # specify the master doc, otherwise the build at read the docs fails
 master_doc = "index"
