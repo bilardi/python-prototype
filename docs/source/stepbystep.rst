@@ -1,7 +1,12 @@
 Step by step
 ============
 
-This page is for learning all steps that they are necessary for writing a simple package like simple-sample.
+.. note::
+
+   This page describes the **pre-refactoring** state of the project, on the ``unittest`` branch.
+   For the modern equivalent (``pytest``, ``pyproject.toml``, ``uv``, ``ruff``, ``pyright``, ``pre-commit``), see the `refactoring <https://simple-sample.readthedocs.io/en/latest/refactoring.html>`_ page.
+
+This page is for learning all steps that are necessary for writing a simple package like simple-sample.
 
 see-git-steps
 #############
@@ -17,7 +22,7 @@ The goal of the package simple-sample is to create a Python package prototype.
 So you can use this simple package for downloading a base for your package.
 
 This package has been refactored with new tools and best practises.
-So you can follow this guide only after to change the branch.
+So you can follow this guide only after changing the branch.
 
 .. code-block:: bash
 
@@ -66,7 +71,7 @@ When you have modified, you can commit your first change
 .. code-block:: bash
 
     $ cd python-prototype
-    $ git init # for initializing the repository
+    $ git init  # for initializing the repository
     $ git add .gitignore CHANGELOG.md LICENSE MANIFEST.in Makefile README.rst setup.py
     $ git commit -m "step 1 - add the outline files"
 
@@ -108,7 +113,7 @@ When you have modified **setup.py** and added the new files, you can commit your
 Step 3
 ******
 
-Before write code, it is important to verbalize the concepts by documentation:
+Before writing code, it is important to verbalize the concepts by documentation:
 so the documentation is important to learn a package as to plan how to write the code.
 
 You can write your documentation as you want: you can create docs folder like in this package, by `sphinx <https://simple-sample.readthedocs.io/en/latest/howtomake.html#documentation>`_.
@@ -135,16 +140,16 @@ So you can add CHANGELOG.md on your last commit, or you can create one commit fo
 
     $ cd python-prototype
     $ git add CHANGELOG.md
-    $ git commit --amend # add file on your last commit
-    $ git tag v0.0.1 -m "Empty package and documentation by sphinx" # create a tag with that version name
-    $ git tag -n # show the tag list with description
-    $ git push origin --tags # load the tag on repository
+    $ git commit --amend  # add file on your last commit
+    $ git tag v0.0.1 -m "Empty package and documentation by sphinx"  # create a tag with that version name
+    $ git tag -n  # show the tag list with description
+    $ git push origin --tags  # load the tag on repository
 
 Step 4
 ******
 
-Before write code, it is important to verbalize the methods by create Test Driven Development (TDD) for your code.
-Then, it is important to use unit test for finding the issues and before to update change log file and package version.
+Before writing code, it is important to verbalize the methods by creating a Test Driven Development (TDD) for your code.
+Then, it is important to use unit tests for finding the issues and before updating the change log file and the package version.
 
 In Python, a standard TDD is offered by unittest module: see the unit tests of MyClassInterface by `GitHub <https://github.com/bilardi/python-prototype/commit/b31157739997841621968440f970778059a41946>`_ or by command line with see-git-steps
 
@@ -327,7 +332,7 @@ So you can add the files updated, you can create a commit dedicated, and then yo
     $ cd python-prototype
     $ git add CHANGELOG.md docs/source/conf.py simple_sample/__init__.py
     $ git commit -m "step 10 - update changelog and version of the simple-sample package"
-    $ git push origin master # load the commit on remote repository
-    $ git tag v0.0.4 -m "The first full version of the simple-sample package" # create a tag with that version name
-    $ git tag -n # show the tag list with description
-    $ git push origin --tags # load the tag on repository
+    $ git push origin master  # load the commit on remote repository
+    $ git tag v0.0.4 -m "The first full version of the simple-sample package"  # create a tag with that version name
+    $ git tag -n  # show the tag list with description
+    $ git push origin --tags  # load the tag on repository
