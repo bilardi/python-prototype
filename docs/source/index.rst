@@ -16,6 +16,7 @@ This package contains a simple sample of a Python package prototype.
    howtouse
    howtomake
    refactoring
+   api
    stepbystep
 
 Indices and tables
