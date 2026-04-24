@@ -16,8 +16,8 @@ clean:
 	rm -rf build dist *.egg-info; rm -rf */*pyc; rm -rf */*/*pyc; rm -rf */__pycache__
 
 .PHONY: doc # build documentation
-doc: 
-	cd docs; make html; cd -
+doc:
+	cd docs; make html SPHINXBUILD="uv run sphinx-build"; cd -
 
 .PHONY: buildtest # build package on testpypi
 buildtest: clean
