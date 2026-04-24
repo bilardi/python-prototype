@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 2026-04-24
+### 🐛 Bug Fixes
+- Enable sphinx docs build locally and on Read the Docs
+
+### 📚 Documentation
+- Add Step 11 on migration of dev dependencies to pyproject.toml
+- Extend Step 11 with sphinx dev-dep and Read the Docs configuration
+
+### ⚡ Performance
+- Declare dev-deps in pyproject.toml and prefix uv run in Makefile
+
+### ⚙️ Miscellaneous Tasks
+- Remove tests/requirements-test.txt (replaced by [dependency-groups].dev)
+
 ## [1.5.1] - 2026-04-24
 ### 🚀 Features
 - Added ruff for linting, format e isort
@@ -92,6 +106,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Added the empty package version
 - Added documentation by sphinx
 
+[1.5.2]: https://github.com/bilardi/python-prototype/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/bilardi/python-prototype/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/bilardi/python-prototype/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/bilardi/python-prototype/compare/v1.3.1...v1.4.0

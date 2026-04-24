@@ -14,5 +14,5 @@ Package contents three files, and each file contains one class with the same nam
 # support https://github.com/bilardi/python-prototype/issues
 """
 
-__version__ = "1.5.1"
+__version__ = "1.5.2"
 __author__ = "Alessandra Bilardi"
