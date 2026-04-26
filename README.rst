@@ -1,51 +1,45 @@
 Python prototype
 ================
 
-This package contains a simple sample of a Python package prototype.
-It is part of the `educational repositories <https://github.com/pandle/materials>`_ to learn how to write stardard code and common uses of the TDD.
+A simple sample of a Python package prototype. Part of the `educational repositories <https://github.com/pandle/materials>`_, used as reference for TDD, packaging and code quality best practices.
 
-See the documentation and how to do it on `readthedocs <https://simple-sample.readthedocs.io/en/latest/>`_.
-And see the development of this code step by step
+Full documentation on `readthedocs <https://simple-sample.readthedocs.io/en/latest/>`_.
 
-* with `see-git-steps <https://github.com/bilardi/see-git-steps>`_ on `readthedocs / step by step <https://simple-sample.readthedocs.io/en/latest/stepbystep.html>`_
-    * this page is old style: you can learn the concepts about to create before unit test and then the code
-    * but now a Python package is handled differently
-* you can find the refactoring on `readthedocs / refactoring <https://simple-sample.readthedocs.io/en/latest/refactoring.html>`_
+Two reading paths through the development history:
+
+* `step by step <https://simple-sample.readthedocs.io/en/latest/stepbystep.html>`_: built from scratch with the **legacy stack** (``unittest`` + ``setup.py``), uses `see-git-steps <https://github.com/bilardi/see-git-steps>`_ to walk through the commits.
+* `refactoring <https://simple-sample.readthedocs.io/en/latest/refactoring.html>`_: migration to the **modern stack** (``pytest`` + ``pyproject.toml``, plus ``uv``, ``ruff``, ``pyright``, ``pre-commit``).
+
+A visual overview of the daily code quality cycle and the TDD sequence is on the `code quality <https://simple-sample.readthedocs.io/en/latest/codequality.html>`_ page.
 
 Installation
-###############
+############
 
-The package is self-consistent. So you can download the package by github:
+The package is self-contained. You can download it from GitHub:
 
 .. code-block:: bash
 
     $ git clone https://github.com/bilardi/python-prototype
 
-Or you can install by python3-pip:
+Or install it with pip:
 
 .. code-block:: bash
 
-    $ pip3 install simple_sample
+    $ pip3 install simple-sample
 
 Usage
 #####
 
-Read the unit tests in `tests/test_my_class.py <https://github.com/bilardi/python-prototype/blob/master/tests/test_my_class.py>`_ file to use it. This is a best practice.
-You can read also the documentation by command line,
+Read `tests/test_my_class.py <https://github.com/bilardi/python-prototype/blob/master/tests/test_my_class.py>`_ to see how to use the package, or read the docstrings from the REPL:
 
 .. code-block:: bash
 
     $ python3
     >>> from simple_sample.my_class import MyClass
-    >>> print(MyClass.__doc__)
     >>> help(MyClass)
     >>> quit()
 
-If you want to see the local documentation, that you have downloaded by github, you can use the same steps but before you must to change the directory
-
-.. code-block:: bash
-
-    $ cd python-prototype
+For more, see `readthedocs / howtouse <https://simple-sample.readthedocs.io/en/latest/howtouse.html>`_.
 
 Development
 ###########
@@ -75,7 +69,7 @@ Change Log
 ##########
 
 See `CHANGELOG.md <https://github.com/bilardi/python-prototype/blob/master/CHANGELOG.md>`_ for details.
-This file is updated by `Makefile <https://github.com/bilardi/python-prototype/blob/master/Makefile>`_ command:
+This file is updated by a `Makefile <https://github.com/bilardi/python-prototype/blob/master/Makefile>`_ target:
 
 .. code-block:: bash
 
@@ -92,4 +86,4 @@ Blog post
 License
 #######
 
-This package is released under the MIT license.  See `LICENSE <https://github.com/bilardi/python-prototype/blob/master/LICENSE>`_ for details.
+This package is released under the MIT license. See `LICENSE <https://github.com/bilardi/python-prototype/blob/master/LICENSE>`_ for details.

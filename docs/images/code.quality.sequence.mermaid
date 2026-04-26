@@ -1,0 +1,23 @@
+sequenceDiagram
+    actor Dev as Developer
+    participant Test as tests/
+    participant Code as src/
+    participant PC as pre-commit
+    participant Py as pytest
+    participant R as ruff
+
+    Note over Dev,Code: TDD: tests first, then the code
+    Dev->>Test: write a test
+    Dev->>Py: uv run pytest
+    Py-->>Dev: red (test fails)
+    Dev->>Code: write the minimum to pass
+    Dev->>Py: uv run pytest
+    Py-->>Dev: green
+
+    Note over Dev,PC: Commit: pre-commit verifies
+    Dev->>PC: git commit
+    PC->>R: ruff check + format
+    R-->>PC: ok
+    PC->>Py: pytest
+    Py-->>PC: green
+    PC-->>Dev: commit created

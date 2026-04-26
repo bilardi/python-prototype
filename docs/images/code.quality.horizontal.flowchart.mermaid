@@ -1,0 +1,12 @@
+flowchart LR
+    Setup([uv sync]) -.-> Code
+    Code[write code] -->|save| IDE[pyright in IDE]
+    IDE --> Code
+    Code -->|git commit| PC[pre-commit hook]
+    PC --> Ruff[ruff check + format]
+    PC --> Pytest[pytest]
+    Ruff --> Check{all green?}
+    Pytest --> Check
+    Check -->|pass| Commit[commit created]
+    Check -->|fail| Fix[fix]
+    Fix --> Code
