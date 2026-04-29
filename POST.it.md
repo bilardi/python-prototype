@@ -32,7 +32,7 @@ Visto che non esiste un "pacchetto tutto incluso", c'era da testare ciò che era
 
 Quattro tool, non dieci:
 
-- **uv**: l'env manager. Rimpiazza `pip` e `venv`. Un binario in Rust.
+- **uv**: l'env manager. Un binario in Rust al posto di `pip`, `venv`, `pyenv` e `pipx`. Con poetry, gli ultimi due non sono coperti e vanno installati a parte: meno strumenti satellite intorno.
 - **[ruff](https://docs.astral.sh/ruff/)**: formatting e linting. Rimpiazza `black`, `isort`, `flake8` e la gran parte di `pylint`. Un altro binario in Rust.
 - **[pyright](https://microsoft.github.io/pyright/)**: il type checker. Scartando [mypy](https://mypy-lang.org/), [pyrefly](https://pyrefly.org/) e [ty](https://github.com/astral-sh/ty). Per il momento.
 - **[pre-commit](https://pre-commit.com/)**: git-hook che fa girare ruff e pytest automaticamente prima di ogni commit. Basta .. ricordarsi di impostarlo a inizio progetto !
