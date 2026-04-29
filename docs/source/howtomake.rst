@@ -31,8 +31,8 @@ The main commands become
     $ uv python install 3.13
     # create the environment and install all the dependencies (including dev)
     $ uv sync
-    # to enter in the virtual environment
-    $ source .venv/bin/activate
+    # it is no longer necessary to enter the virtual environment if you use `uv run`
+    $ # source .venv/bin/activate
 
 After `uv sync`, if you use `uv run` and the command you need (ie: `uv run pytest`, to test unit tests),
 you don't need to use `source .venv/bin/activate` because `uv` package is the one who takes care of it.
