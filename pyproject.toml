@@ -53,6 +53,8 @@ current_version = "1.5.3"
 commit = true
 tag = true
 tag_name = "v{new_version}"
+message = "build: release {new_version}"
+tag_message = "simple-sample {new_version}"
 
 [[tool.bumpversion.files]]
 filename = "simple_sample/__init__.py"
@@ -152,6 +154,10 @@ group = "Chores"
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+# markers = [
+#     "slow: tests longer than ~Xs; run with -m slow to include them",
+# ]
+# addopts = ["-m", "not slow"]
 
 # ---------------------------------------------------------------------------
 # ruff
@@ -200,4 +206,5 @@ max-complexity = 10
 exclude = ["**/__pycache__"]
 include = ["simple_sample"]
 pythonVersion = "3.13"
+reportMissingTypeStubs = false
 typeCheckingMode = "strict"

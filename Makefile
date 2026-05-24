@@ -7,21 +7,37 @@ LIBRARY_NAME = "simple_sample"
 help:
 	grep PHONY Makefile | sed 's/.PHONY: /make /' | grep -v grep
 
-.PHONY: unittest # run unit tests
-unittest:
-	python3 -m unittest discover -v
-
 .PHONY: clean # remove packaging files
 clean:
 	rm -rf build dist *.egg-info; rm -rf */*pyc; rm -rf */*/*pyc; rm -rf */__pycache__
+
+.PHONY: sync # install/refresh dev dependencies via uv sync
+sync:
+	uv sync
+
+.PHONY: test # run unit tests
+test:
+	uv run pytest
+
+.PHONY: lint # run ruff check
+lint:
+	uv run ruff check --no-fix .
+
+.PHONY: format # run ruff format
+format:
+	uv run ruff format .
+
+.PHONY: typecheck # run pyright
+typecheck:
+	uv run pyright
 
 .PHONY: doc # build documentation
 doc:
 	cd docs; make html SPHINXBUILD="uv run sphinx-build"; cd -
 
-.PHONY: buildtest # build package on testpypi
+.PHONY: buildtest # build package and upload on testpypi
 buildtest: clean
-	uv run python -m build; uv run python -m twine upload --repository testpypi dist/*
+	uv build && uv run python -m twine upload --repository testpypi dist/*
 
 .PHONY: installtest # install package from testpypi in a sandbox venv and verify
 installtest:
@@ -30,9 +46,9 @@ installtest:
 	.installtest/bin/python -c "import $(LIBRARY_NAME); print($(LIBRARY_NAME).__version__)"
 	rm -rf .installtest
 
-.PHONY: build # build package on pypi
+.PHONY: build # build package and upload on pypi
 build: clean
-	uv run python -m build; uv run python -m twine upload dist/*
+	uv build && uv run python -m twine upload dist/*
 
 .PHONY: install # install package from pypi in a sandbox venv and verify
 install:
@@ -54,12 +70,14 @@ patch:
 release:
 	uv run bump-my-version bump $(PART)
 	$(MAKE) changelog
-	git tag -f v$$(uv run python -c "from simple_sample import __version__; print(__version__)")
-	git push && git push --tags --force
+	@echo "To publish the release to remote, run:"
+	@echo "  git push && git push --tags --force"
 
 .PHONY: changelog # update CHANGELOG.md and amend it on the commit
 changelog:
 	uv run git-cliff --config pyproject.toml --output CHANGELOG.md
 	sed -i 's/<!-- [0-9]* -->//g' CHANGELOG.md
-	git add CHANGELOG.md
-	git commit --amend --no-edit
+	git add CHANGELOG.md uv.lock
+	TAG=$$(git tag --points-at HEAD); \
+	git commit --amend --no-edit; \
+	[ -n "$$TAG" ] && git tag -f $$TAG $$(git rev-parse HEAD) || true
